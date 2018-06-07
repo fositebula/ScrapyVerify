@@ -55,13 +55,14 @@ def scrapyVerify():
     if ret == 'ok':
         with open(BRANCHS_PROJECTS) as fd:
             j_str = fd.read()
-            try:
-                res = requests.post(WHITE_URL, data=j_str)
-                # print 'requests status_code {}'.format(res.status_code)
-                return res.status_code
-            except ConnectionError:
-                send_mail('Scrapy Exception', 'requests Exception ConnectionError!', TO_SOMEONE)
-                return 'requests Exception ConnectionError!'
+            return j_str
+            # try:
+            #     res = requests.post(WHITE_URL, data=j_str)
+            #     print 'requests status_code {}'.format(res.status_code)
+            #     return res.status_code
+            # except ConnectionError:
+            #     send_mail('Scrapy Exception', 'requests Exception ConnectionError!', TO_SOMEONE)
+            #     return 'requests Exception ConnectionError!'
     return 'Scrapy fail!'
 
 if __name__ == '__main__':
